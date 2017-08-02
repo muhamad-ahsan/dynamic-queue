@@ -4,4 +4,4 @@ Message Queues are very crucial part of many applications specially Enterprise a
 
 Dynamic Queue (this framework) is an abstraction which is independent from any specific message broker implementation and gives the flexibility to switch the message broker without updating the code. YES!!! 
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](muhamad_ahsan@live.com)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AEAML5T4W4NXJ)
