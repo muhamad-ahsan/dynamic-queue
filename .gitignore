@@ -3,3 +3,8 @@
 ################################################################################
 
 /MessageQueue.CofigurationProvider.AppSettings/obj/Debug
+*.vspscc
+/MessageQueue.CofigurationProvider.AppSettings/MessageQueue.CofigurationProvider.AppSettings.csproj.vspscc
+/MessageQueue.CofigurationProvider.AppSettings/MessageQueue.CofigurationProvider.AppSettings.csproj.vspscc
+/MessageQueue.CofigurationProvider.Core/obj/Debug
+/MessageQueue.Core/obj/Debug

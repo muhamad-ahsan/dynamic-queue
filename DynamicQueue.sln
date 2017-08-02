@@ -1,0 +1,142 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.Core", "MessageQueue.Core\MessageQueue.Core.csproj", "{834CAA3E-15AA-4D5D-82A4-884CAB986AAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.Log.Core", "MessageQueue.Log.Core\MessageQueue.Log.Core.csproj", "{304AAF94-6055-4AD7-942D-6EE000CD3D75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.Log.NLog", "MessageQueue.Log.NLog\MessageQueue.Log.NLog.csproj", "{E2497F7E-11B5-4850-B1FD-2D3990368970}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.RabbitMq", "MessageQueue.RabbitMq\MessageQueue.RabbitMq.csproj", "{89733E22-2D91-4ACE-B4AE-646104F2591E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.ServiceBus", "MessageQueue.ServiceBus\MessageQueue.ServiceBus.csproj", "{DEC06ED4-DFAD-47D3-9277-FFD1F43EE8BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.ZeroMq", "MessageQueue.ZeroMq\MessageQueue.ZeroMq.csproj", "{74BA1D1D-8536-4480-8F96-DF2621E8FBCE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{564914C1-5B69-4EAE-BEE2-5EB999E0A3D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.Sender", "Tests\MessageQueue.Sender\MessageQueue.Sender.csproj", "{EDA7C5CB-E537-454C-976E-48AB241E4AAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.Receiver", "Tests\MessageQueue.Receiver\MessageQueue.Receiver.csproj", "{36A654EA-1ACC-4F00-A31D-5805D89CE035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.RaR.Server", "Tests\MessageQueue.RaR.Server\MessageQueue.RaR.Server.csproj", "{6C8F8685-8B2F-4767-B3CB-10A3EBD464FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.RaR.Client", "Tests\MessageQueue.RaR.Client\MessageQueue.RaR.Client.csproj", "{B88D6D9A-7FBA-40C7-A5DB-07625BC7278B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.CofigurationProvider.Core", "MessageQueue.CofigurationProvider.Core\MessageQueue.CofigurationProvider.Core.csproj", "{E4880D7E-40AD-4936-88E7-0E6A28F5FB0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue.CofigurationProvider.AppSettings", "MessageQueue.CofigurationProvider.AppSettings\MessageQueue.CofigurationProvider.AppSettings.csproj", "{4FAE7CE2-12FD-4434-9403-79F520B00481}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{834CAA3E-15AA-4D5D-82A4-884CAB986AAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834CAA3E-15AA-4D5D-82A4-884CAB986AAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834CAA3E-15AA-4D5D-82A4-884CAB986AAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834CAA3E-15AA-4D5D-82A4-884CAB986AAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{304AAF94-6055-4AD7-942D-6EE000CD3D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{304AAF94-6055-4AD7-942D-6EE000CD3D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{304AAF94-6055-4AD7-942D-6EE000CD3D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{304AAF94-6055-4AD7-942D-6EE000CD3D75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2497F7E-11B5-4850-B1FD-2D3990368970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2497F7E-11B5-4850-B1FD-2D3990368970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2497F7E-11B5-4850-B1FD-2D3990368970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2497F7E-11B5-4850-B1FD-2D3990368970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89733E22-2D91-4ACE-B4AE-646104F2591E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89733E22-2D91-4ACE-B4AE-646104F2591E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89733E22-2D91-4ACE-B4AE-646104F2591E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89733E22-2D91-4ACE-B4AE-646104F2591E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEC06ED4-DFAD-47D3-9277-FFD1F43EE8BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEC06ED4-DFAD-47D3-9277-FFD1F43EE8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEC06ED4-DFAD-47D3-9277-FFD1F43EE8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEC06ED4-DFAD-47D3-9277-FFD1F43EE8BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74BA1D1D-8536-4480-8F96-DF2621E8FBCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BA1D1D-8536-4480-8F96-DF2621E8FBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BA1D1D-8536-4480-8F96-DF2621E8FBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BA1D1D-8536-4480-8F96-DF2621E8FBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDA7C5CB-E537-454C-976E-48AB241E4AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA7C5CB-E537-454C-976E-48AB241E4AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA7C5CB-E537-454C-976E-48AB241E4AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA7C5CB-E537-454C-976E-48AB241E4AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A654EA-1ACC-4F00-A31D-5805D89CE035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A654EA-1ACC-4F00-A31D-5805D89CE035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A654EA-1ACC-4F00-A31D-5805D89CE035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A654EA-1ACC-4F00-A31D-5805D89CE035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C8F8685-8B2F-4767-B3CB-10A3EBD464FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8F8685-8B2F-4767-B3CB-10A3EBD464FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8F8685-8B2F-4767-B3CB-10A3EBD464FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8F8685-8B2F-4767-B3CB-10A3EBD464FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88D6D9A-7FBA-40C7-A5DB-07625BC7278B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88D6D9A-7FBA-40C7-A5DB-07625BC7278B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88D6D9A-7FBA-40C7-A5DB-07625BC7278B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88D6D9A-7FBA-40C7-A5DB-07625BC7278B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4880D7E-40AD-4936-88E7-0E6A28F5FB0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4880D7E-40AD-4936-88E7-0E6A28F5FB0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4880D7E-40AD-4936-88E7-0E6A28F5FB0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4880D7E-40AD-4936-88E7-0E6A28F5FB0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FAE7CE2-12FD-4434-9403-79F520B00481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FAE7CE2-12FD-4434-9403-79F520B00481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FAE7CE2-12FD-4434-9403-79F520B00481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FAE7CE2-12FD-4434-9403-79F520B00481}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EDA7C5CB-E537-454C-976E-48AB241E4AAA} = {564914C1-5B69-4EAE-BEE2-5EB999E0A3D5}
+		{36A654EA-1ACC-4F00-A31D-5805D89CE035} = {564914C1-5B69-4EAE-BEE2-5EB999E0A3D5}
+		{6C8F8685-8B2F-4767-B3CB-10A3EBD464FB} = {564914C1-5B69-4EAE-BEE2-5EB999E0A3D5}
+		{B88D6D9A-7FBA-40C7-A5DB-07625BC7278B} = {564914C1-5B69-4EAE-BEE2-5EB999E0A3D5}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 13
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tecklab.visualstudio.com/
+		SccProjectUniqueName0 = MessageQueue.Core\\MessageQueue.Core.csproj
+		SccProjectName0 = MessageQueue.Core
+		SccLocalPath0 = MessageQueue.Core
+		SccProjectUniqueName1 = MessageQueue.Log.Core\\MessageQueue.Log.Core.csproj
+		SccProjectName1 = MessageQueue.Log.Core
+		SccLocalPath1 = MessageQueue.Log.Core
+		SccProjectUniqueName2 = MessageQueue.Log.NLog\\MessageQueue.Log.NLog.csproj
+		SccProjectName2 = MessageQueue.Log.NLog
+		SccLocalPath2 = MessageQueue.Log.NLog
+		SccProjectUniqueName3 = MessageQueue.RabbitMq\\MessageQueue.RabbitMq.csproj
+		SccProjectName3 = MessageQueue.RabbitMq
+		SccLocalPath3 = MessageQueue.RabbitMq
+		SccProjectUniqueName4 = MessageQueue.ServiceBus\\MessageQueue.ServiceBus.csproj
+		SccProjectName4 = MessageQueue.ServiceBus
+		SccLocalPath4 = MessageQueue.ServiceBus
+		SccProjectUniqueName5 = MessageQueue.ZeroMq\\MessageQueue.ZeroMq.csproj
+		SccProjectName5 = MessageQueue.ZeroMq
+		SccLocalPath5 = MessageQueue.ZeroMq
+		SccProjectUniqueName6 = MessageQueue.CofigurationProvider.Core\\MessageQueue.CofigurationProvider.Core.csproj
+		SccProjectName6 = MessageQueue.CofigurationProvider.Core
+		SccLocalPath6 = MessageQueue.CofigurationProvider.Core
+		SccProjectUniqueName7 = MessageQueue.CofigurationProvider.AppSettings\\MessageQueue.CofigurationProvider.AppSettings.csproj
+		SccProjectName7 = MessageQueue.CofigurationProvider.AppSettings
+		SccLocalPath7 = MessageQueue.CofigurationProvider.AppSettings
+		SccLocalPath8 = .
+		SccProjectUniqueName9 = Tests\\MessageQueue.RaR.Client\\MessageQueue.RaR.Client.csproj
+		SccProjectTopLevelParentUniqueName9 = DynamicQueue.sln
+		SccProjectName9 = Tests/MessageQueue.RaR.Client
+		SccLocalPath9 = Tests\\MessageQueue.RaR.Client
+		SccProjectUniqueName10 = Tests\\MessageQueue.RaR.Server\\MessageQueue.RaR.Server.csproj
+		SccProjectTopLevelParentUniqueName10 = DynamicQueue.sln
+		SccProjectName10 = Tests/MessageQueue.RaR.Server
+		SccLocalPath10 = Tests\\MessageQueue.RaR.Server
+		SccProjectUniqueName11 = Tests\\MessageQueue.Receiver\\MessageQueue.Receiver.csproj
+		SccProjectTopLevelParentUniqueName11 = DynamicQueue.sln
+		SccProjectName11 = Tests/MessageQueue.Receiver
+		SccLocalPath11 = Tests\\MessageQueue.Receiver
+		SccProjectUniqueName12 = Tests\\MessageQueue.Sender\\MessageQueue.Sender.csproj
+		SccProjectTopLevelParentUniqueName12 = DynamicQueue.sln
+		SccProjectName12 = Tests/MessageQueue.Sender
+		SccLocalPath12 = Tests\\MessageQueue.Sender
+	EndGlobalSection
+EndGlobal

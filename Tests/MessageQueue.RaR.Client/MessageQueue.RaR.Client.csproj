@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B88D6D9A-7FBA-40C7-A5DB-07625BC7278B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MessageQueue.RaR.Client</RootNamespace>
+    <AssemblyName>MessageQueue.RaR.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Shared\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Shared\appSettings.config">
+      <Link>appSettings.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\Shared\NLog.config">
+      <Link>NLog.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MessageQueue.CofigurationProvider.AppSettings\MessageQueue.CofigurationProvider.AppSettings.csproj">
+      <Project>{4fae7ce2-12fd-4434-9403-79f520b00481}</Project>
+      <Name>MessageQueue.CofigurationProvider.AppSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MessageQueue.CofigurationProvider.Core\MessageQueue.CofigurationProvider.Core.csproj">
+      <Project>{e4880d7e-40ad-4936-88e7-0e6a28f5fb0a}</Project>
+      <Name>MessageQueue.CofigurationProvider.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MessageQueue.Core\MessageQueue.Core.csproj">
+      <Project>{834caa3e-15aa-4d5d-82a4-884cab986aac}</Project>
+      <Name>MessageQueue.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MessageQueue.Log.Core\MessageQueue.Log.Core.csproj">
+      <Project>{304aaf94-6055-4ad7-942d-6ee000cd3d75}</Project>
+      <Name>MessageQueue.Log.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MessageQueue.Log.NLog\MessageQueue.Log.NLog.csproj">
+      <Project>{e2497f7e-11b5-4850-b1fd-2d3990368970}</Project>
+      <Name>MessageQueue.Log.NLog</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy  "$(SolutionDir)_Output\bin\$(ConfigurationName)" "$(TargetDir)" /Y /D /I /E</PostBuildEvent>
+  </PropertyGroup>
+</Project>
