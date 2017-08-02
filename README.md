@@ -1,37 +1,7 @@
-## Welcome to GitHub Pages
+# About
 
-You can use the [editor on GitHub](https://github.com/muhamad-ahsan/dynamic-queue/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Message Queues are very crucial part of many applications specially Enterprise and Real Time applications. There are many message broker frmeworks available in the marked e.g. RabbitMq, ZeroMq, ServiceBus and so on. Each framework has different features and usage. It is very common that in a single application you use more than one message broker. For exmaple, ZeroMq is in-memory messaging queue and it is very efficient because of this reason; so, it can be used for logging purpose in a separate thread. Or the scenario could be using free message broker in Development environment and paid one in Production. So there are many possibilities using more than one message broker.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Dynamic Queue (this framework) is an abstraction which is independent from any specific message broker implementation and gives the flexibility to switch the message broker without updating the code. YES!!! 
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/muhamad-ahsan/dynamic-queue/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](muhamad_ahsan@live.com)
