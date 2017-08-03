@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DynamicQueue.ZeroMq</id>
+    <version>1.0.0.0</version>
+    <title>DynamicQueue using ZeroMq</title>
+    <authors>muhamad.ahsan</authors>
+    <licenseUrl>https://github.com/muhamad-ahsan/dynamic-queue/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/muhamad-ahsan/dynamic-queue</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ZeroMq based implementation of Dynamic Queue.</description>
+    <releaseNotes>The initial release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>DynamicQueue ZeroMq Queue Dynamic</tags>
+
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="10.0.2" />
+      <dependency id="AsyncIO" version="0.1.26.0" />
+      <dependency id="NetMQ" version="4.0.0.1" />
+    </dependencies>
+    
+  </metadata>
+
+  <files>
+    <file src="..\_Output\bin\Release\MessageQueue.Core.dll" target="lib" />
+    <file src="..\_Output\bin\Release\MessageQueue.Log.Core.dll" target="lib" />
+    <file src="..\_Output\bin\Release\MessageQueue.CofigurationProvider.Core.dll" target="lib" />
+    <file src="..\_Output\bin\Release\MessageQueue.CofigurationProvider.AppSettings.dll" target="lib" />
+    <file src="..\_Output\bin\Release\MessageQueue.ZeroMq.dll" target="lib" />
+  </files>
+  
+</package>

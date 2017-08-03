@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DynamicQueue.Log.NLog</id>
+    <version>1.0.0.0</version>
+    <title>DynamicQueue logging using NLog</title>
+    <authors>muhamad.ahsan</authors>
+    <licenseUrl>https://github.com/muhamad-ahsan/dynamic-queue/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/muhamad-ahsan/dynamic-queue</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NLog based logging in Dynamic Queue.</description>
+    <releaseNotes>The initial release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>DynamicQueue ZeroMq Queue Dynamic</tags>
+
+    <dependencies>
+      <dependency id="NLog" version="4.4.10" />
+      <dependency id="NLog.Config" version="4.4.10" />
+      <dependency id="NLog.Schema" version="4.4.10" />
+    </dependencies>
+
+  </metadata>
+
+  <files>
+    <file src="..\_Output\bin\Release\MessageQueue.Log.Core.dll" target="lib" />
+    <file src="..\_Output\bin\Release\MessageQueue.Log.NLog.dll" target="lib" />
+  </files>
+
+</package>

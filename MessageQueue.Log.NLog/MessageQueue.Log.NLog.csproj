@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="MessageQueue.Log.NLog.nuspec" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
