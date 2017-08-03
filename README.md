@@ -115,7 +115,7 @@ As of now, following message brokers have been implemented:
 
 | Pattern | Inbound-Interface | Outbound-Interface  |
 | --- | --- | --- |
-| FaF |``MessageQueue.ServiceBus.Concrete.Inbound.SbInboundFaF`1, MessageQueue.RabbitMq`` |``MessageQueue.ServiceBus.Concrete.Outbound.SbOutboundFaF`1, MessageQueue.RabbitMq`` |
+| FaF |``MessageQueue.ServiceBus.Concrete.Inbound.SbInboundFaF`1, MessageQueue.ServiceBus`` |``MessageQueue.ServiceBus.Concrete.Outbound.SbOutboundFaF`1, MessageQueue.ServiceBus`` |
 | RaR | *Not Implemented* | *Not Implemented* |
 
 > The framework does not create the queues exception RaR pattern where it needs to create queue for the responses.
