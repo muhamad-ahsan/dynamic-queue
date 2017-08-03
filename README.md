@@ -28,13 +28,12 @@ Dynamic Queue framework defines abstraction around these communication patterns.
 Dynamic Queue framework architecture has been designed with loosely coupled modules, interface-based dependencies, flexible configuration, seamless serialization and easy to extend. Below are further details:
 
 ### Technology
-The framework has built using `C# 6.0` and `.net 4.5.2`.
 
 ### Exception Handling
 All the exceptions from the framework are thrown as `QueueException` with error code defined in `QueueErrorCode` enum and message.
 
 ### Logging
-Logging is optional and if logger is passed while creating the instance of any type (inbound or outbound), then the logging will be done. There are two interfaces define in `MessageQueue.Log.Core` `dll` as `IQueueLogger` and `IQueueLoggerAsync`. The default logger using NLog is defined in `MessageQueue.Log.NLog` and the usage can be seen in Samples (please see the Samples section below).
+Logging is optional and if logger is passed while creating the instance of any type (inbound or outbound), then the logging will be done. There are two interfaces define in `MessageQueue.Log.Core` `dll` as `IQueueLogger` and `IQueueLoggerAsync`. The default logger using NLog is defined in `MessageQueue.Log.NLog` and the usage can be seen in Samples (please see the [Samples](#samples) section below).
 
 ### Serialization
 Serialization is seamless and is done using `Newtonsoft`.
@@ -42,11 +41,13 @@ Serialization is seamless and is done using `Newtonsoft`.
 ### Configuration
 The configuration can be stored in any type of store or configuration file. There is an interface named as `IQueueConfigurationProvider` in `MessageQueue.CofigurationProvider.Core` `dll` and the default implementation which retrieves configuration from AppSettings is also defined in `MessageQueue.CofigurationProvider.Core`. If you want to define your custom configuration provider, then simply implement `IQueueConfigurationProvider`.
 
-
 > Creation of any interface implementation is dyamic and is based on the fully qualified class name and assembly name.
 
 ### Thread Safety
 All the implementations of message brokers (some by default from the message broker and others managed by Dynamic Queue) are thread safe.
+
+### The Queue Factory
+There is a class named as `MessagingQueueFactory` which is responsible to create any kind of interface implementation. This class is available in `MessageQueue.Core` dll.
 
 # Message Brokers
 As of now, following message brokers have been implemented:
@@ -118,13 +119,13 @@ As of now, following message brokers have been implemented:
 | FaF |``MessageQueue.ServiceBus.Concrete.Inbound.SbInboundFaF`1, MessageQueue.ServiceBus`` |``MessageQueue.ServiceBus.Concrete.Outbound.SbOutboundFaF`1, MessageQueue.ServiceBus`` |
 | RaR | *Not Implemented* | *Not Implemented* |
 
-> The framework does not create the queues exception RaR pattern where it needs to create queue for the responses.
+> The framework does not create the queues. The only scenario is in RaR pattern where it needs to create queue for the responses.
 
 # Setup
-If you want to run the code in `Visual Studio` or any other `.Net IDE`, just download the source code, restore the nuget packages, update the configuration and you are good to go. Please see the section 'Samples' below for details.
+If you want to run the code in `Visual Studio` or any other `.Net IDE`, just download the source code, restore the nuget packages, update the configuration and you are good to go. Please see the section [Samples](#samples) below for details.
 
 # Samples
-In the Test folder, there are four projects (console application) which consumes Dynamic Queue for each supported communication pattern and message broker. For FaF patter, `MessageQueue.Sender` and `MessageQueue.Receiver` test projects are configured and for RaR pattern, `MessageQueue.RaR.Server` and `MessageQueue.RaR.Client` test projects are configured.
+In the Test folder, there are four projects (console application) which consumes Dynamic Queue for each supported communication pattern and message broker. For FaF patter, `MessageQueue.Sender` [ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.Sender/Program.cs) ] and `MessageQueue.Receiver`[ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.Receiver/Program.cs) ] test projects are configured and for RaR pattern, `MessageQueue.RaR.Server` [ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.RaR.Server/Program.cs) ] and `MessageQueue.RaR.Client` [ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.RaR.Client/Program.cs) ] test projects are configured.
 
 ### FaF Samples
 
@@ -132,11 +133,14 @@ In the Test folder, there are four projects (console application) which consumes
 | --- | --- | --- |
 | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
-**Sender**
-*in-progress...*
+### RaR Samples
+
+| ZeroMq | RabbitMq | ServiceBus |
+| --- | --- | --- |
+| :white_check_mark: | :white_check_mark: | :x: *Not Implemented* |
 
 # Nuget
 Yet to come. I will try to create nuget package soon.
 
-## Appreciation
+# Appreciation
 Like it? Wants to apricate? Please go ahead!!! [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AEAML5T4W4NXJ)
