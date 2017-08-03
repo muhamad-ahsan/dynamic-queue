@@ -28,6 +28,7 @@ Dynamic Queue framework defines abstraction around these communication patterns.
 Dynamic Queue framework architecture has been designed with loosely coupled modules, interface-based dependencies, flexible configuration, seamless serialization and easy to extend. Below are further details:
 
 ### Technology
+The framework has built using `C# 6.0` and `.net 4.5.2`.
 
 ### Exception Handling
 All the exceptions from the framework are thrown as `QueueException` with error code defined in `QueueErrorCode` enum and message.
@@ -118,6 +119,7 @@ As of now, following message brokers have been implemented:
 | --- | --- | --- |
 | FaF |``MessageQueue.ServiceBus.Concrete.Inbound.SbInboundFaF`1, MessageQueue.ServiceBus`` |``MessageQueue.ServiceBus.Concrete.Outbound.SbOutboundFaF`1, MessageQueue.ServiceBus`` |
 | RaR | *Not Implemented* | *Not Implemented* |
+
 
 > The framework does not create the queues. The only scenario is in RaR pattern where it needs to create queue for the responses.
 
