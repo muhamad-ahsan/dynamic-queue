@@ -40,15 +40,31 @@ Logging is optional and if logger is passed while creating the instance of any t
 Serialization is seamless and is done using `Newtonsoft`.
 
 ### Configuration
-The configuration can be stored in any type of store or configuration file. There is an interface named as `IQueueConfigurationProvider` in `MessageQueue.CofigurationProvider.Core` `dll` and the default implementation which retrieves configuration from AppSettings is also defined in `MessageQueue.CofigurationProvider.Core`. If you want to define your custom configuration provider, then simply implement `IQueueConfigurationProvider`.
+The configuration can be stored in any type of store or configuration file. There is an interface named as `IQueueConfigurationProvider` in `MessageQueue.CofigurationProvider.Core` `dll` and the default implementation which retrieves configuration from AppSettings is defined in `MessageQueue.CofigurationProvider.AppSettings`. If you want to define your custom configuration provider, then simply implement `IQueueConfigurationProvider`.
 
-> Creation of any interface implementation is dyamic and is based on the fully qualified class name and assembly name.
+```javascript
+  <!-- ZeroMq -->
+  <add key="ZeroMqFaFOutbound:Address" value=">tcp://localhost:5551" />
+  <add key="ZeroMqFaFOutbound:Implementation" value="MessageQueue.ZeroMq.Concrete.Outbound.ZmqOutboundFaF`1, MessageQueue.ZeroMq" />
+
+  <!-- RabbitMq -->
+  <add key="RabbitMqFaFOutbound:UserName" value="guest" />
+  <add key="RabbitMqFaFOutbound:Password" value="guest" />
+  <add key="RabbitMqFaFOutbound:Address" value="localhost" />
+  <add key="RabbitMqFaFOutbound:QueueName" value="Test_SampleQueue" />
+  <add key="RabbitMqFaFOutbound:Implementation" value="MessageQueue.RabbitMq.Concrete.Outbound.RmqOutboundFaF`1, MessageQueue.RabbitMq" />
+/>
+```
+
+> **RabbitMqFaFOutbound** and **ZeroMqFaFOutbound** are configuration identifiers to group the configuration for any particular instance.
 
 ### Thread Safety
 All the implementations of message brokers (some by default from the message broker and others managed by Dynamic Queue) are thread safe.
 
 ### The Queue Factory
-There is a class named as `MessagingQueueFactory` which is responsible to create any kind of interface implementation. This class is available in `MessageQueue.Core` dll.
+There is a class named as `MessagingQueueFactory` which is responsible to create any kind of interface implementation. This class is available in `MessageQueue.Core` dll. It exposes static methods for instance creation. It takes configuration provider, configuration identifier (string literal which groups the configuration) and optionally logger. Please see [Samples](#samples) for details.
+
+> Creation of any interface implementation is dyamic and is based on the fully qualified class name and assembly name.
 
 # Message Brokers
 As of now, following message brokers have been implemented:
@@ -127,7 +143,7 @@ As of now, following message brokers have been implemented:
 If you want to run the code in `Visual Studio` or any other `.Net IDE`, just download the source code, restore the nuget packages, update the configuration and you are good to go. Please see the section [Samples](#samples) below for details.
 
 # Samples
-In the Test folder, there are four projects (console application) which consumes Dynamic Queue for each supported communication pattern and message broker. For FaF patter, `MessageQueue.Sender` [ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.Sender/Program.cs) ] and `MessageQueue.Receiver`[ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.Receiver/Program.cs) ] test projects are configured and for RaR pattern, `MessageQueue.RaR.Server` [ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.RaR.Server/Program.cs) ] and `MessageQueue.RaR.Client` [ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.RaR.Client/Program.cs) ] test projects are configured.
+In the Test folder, there are four projects (console application) which consumes Dynamic Queue for each supported communication pattern and message broker. For FaF patter, `MessageQueue.Sender` [ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.Sender/Program.cs) ] and `MessageQueue.Receiver`[ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.Receiver/Program.cs) ] test projects are configured and for RaR pattern, `MessageQueue.RaR.Server` [ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.RaR.Server/Program.cs) ] and `MessageQueue.RaR.Client` [ [code snippet](https://github.com/muhamad-ahsan/dynamic-queue/blob/master/Tests/MessageQueue.RaR.Client/Program.cs) ] test projects are configured. Configuration for all the projects is stored in `AppSettings.cofig` file.
 
 ### FaF Samples
 
