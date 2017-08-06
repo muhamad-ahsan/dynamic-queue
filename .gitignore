@@ -41,3 +41,16 @@
 /_Output/bin/Release
 /MessageQueue.ZeroMq/DynamicQueue.ZeroMq.1.0.0
 /MessageQueue.ZeroMq/obj/Release
+/MessageQueue.Log.Core/obj/Debug
+/MessageQueue.Log.NLog/obj/Debug
+/MessageQueue.RabbitMq/obj/Debug
+/MessageQueue.ZeroMq/obj/Debug
+/Tests/MessageQueue.RaR.Client/bin/Debug/logs
+/Tests/MessageQueue.RaR.Client/bin/Debug
+/Tests/MessageQueue.RaR.Client/obj/Debug
+/Tests/MessageQueue.RaR.Server/bin/Debug
+/Tests/MessageQueue.Receiver/bin/Debug
+/Tests/MessageQueue.RaR.Server/obj/Debug
+/Tests/MessageQueue.Receiver/obj/Debug
+/_Output/bin/Debug
+/Tests/MessageQueue.Sender/obj/Debug
