@@ -40,3 +40,4 @@
 /Tests/MessageQueue.Receiver/bin/Release
 /_Output/bin/Release
 /MessageQueue.ZeroMq/DynamicQueue.ZeroMq.1.0.0
+/MessageQueue.ZeroMq/obj/Release
