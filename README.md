@@ -1,4 +1,5 @@
 # About
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 Message Queues are very crucial part of many applications specially Enterprise and Real Time applications. There are many message broker frameworks available in the market e.g. `RabbitMq`, `ZeroMq`, `ServiceBus` and so on. Each framework has different features, implementation and client(s) to interact with the framework.
 
@@ -160,16 +161,17 @@ In the Test folder, there are four projects (console application) which consumes
 # Nuget
 
 ##### ZeroMq
-[Install-Package DynamicQueue.ZeroMq v 1.0](https://www.nuget.org/packages/DynamicQueue.ZeroMq/1.0.0)
+[![NuGet](https://img.shields.io/badge/nuget--ZeroMq-v1.0-blue.svg)](https://www.nuget.org/packages/DynamicQueue.ZeroMq)
 
 ##### RabbitMq
-[Install-Package DynamicQueue.RabbitMq v 1.0](https://www.nuget.org/packages/DynamicQueue.RabbitMq/1.0.0)
+[![NuGet](https://img.shields.io/badge/nuget--RabbitMq-v1.0-blue.svg)](https://www.nuget.org/packages/DynamicQueue.RabbitMq)
 
 ##### ServiceBus
-[Install-Package DynamicQueue.ServiceBus v 1.0](https://www.nuget.org/packages/DynamicQueue.ServiceBus/1.0.0)
+[![NuGet](https://img.shields.io/badge/nuget--ServiceBus-v1.0-blue.svg)](https://www.nuget.org/packages/DynamicQueue.ServiceBus)
 
 ##### Logging-NLog 
-[Install-Package DynamicQueue.Log.NLog v 1.0](https://www.nuget.org/packages/DynamicQueue.Log.NLog/1.0.0)
+[![NuGet](https://img.shields.io/badge/nuget--Logger--NLog-v1.0-blue.svg)](https://www.nuget.org/packages/DynamicQueue.Log.NLog)
+
 
 # Appreciation
 Like it? Wants to apricate? Please go ahead!!! [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AEAML5T4W4NXJ)
