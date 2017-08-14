@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using MessageQueue.Core.Concrete;
 using MessageQueue.Core.Helper;
+using MessageQueue.Core.Concrete;
+using System.Collections.Generic;
 using MessageQueue.Core.Properties;
 using MessageQueue.Log.Core.Abstract;
+using MessageQueue.ServiceBus.Concrete;
 
 namespace MessageQueue.ServiceBus.Helper
 {
@@ -27,37 +27,16 @@ namespace MessageQueue.ServiceBus.Helper
         {
             try
             {
-                #region Parameters Validation
-                var sbSettings = new ServiceBusConfiguration();
+                #region Initialization
+                var serviceBusConfiguration = new ServiceBusConfiguration();
                 rawConfiguration = rawConfiguration ?? new Dictionary<string, string>();
+                #endregion
 
-                var notSupportedParams =
-                    rawConfiguration.Keys.Where(x => !CommonConfigurationKeys.GetAllKeys().Contains(x) && 
-                                                     !ServiceBusConfigurationKeys.GetAllKeys().Contains(x)).ToList();
+                #region Collecting Common Configuration
+                MessageQueueCommonItems.CollectCommonConfiguration(ref rawConfiguration, serviceBusConfiguration, ServiceBusConfigurationKeys.GetAllKeys());
+                #endregion
 
-                if (notSupportedParams.Any())
-                {
-                    throw new QueueException(QueueErrorCode.NotSupportedConfigurationParameters,
-                        ErrorMessages.NotSupportedConfigurationParameters, context: new Dictionary<string, string>
-                        {
-                            [CommonContextKeys.NotSupportedParameters] = string.Join(",", notSupportedParams)
-                        });
-                }
-
-                // Address
-                if (!rawConfiguration.ContainsKey(CommonConfigurationKeys.Address) ||
-                    string.IsNullOrWhiteSpace(rawConfiguration[CommonConfigurationKeys.Address]))
-                {
-                    throw new QueueException(QueueErrorCode.MissingRequiredConfigurationParameter,
-                        string.Format(ErrorMessages.MissingRequiredConfigurationParameter, CommonConfigurationKeys.Address),
-                        context: new Dictionary<string, string>
-                        {
-                            [CommonContextKeys.ParameterName] = CommonConfigurationKeys.Address
-                        });
-                }
-                
-                sbSettings.Address = rawConfiguration[CommonConfigurationKeys.Address];
-
+                #region Collecting Other Configuration
                 // Namespace Address
                 if (rawConfiguration.ContainsKey(ServiceBusConfigurationKeys.NamespaceAddress))
                 {
@@ -72,7 +51,7 @@ namespace MessageQueue.ServiceBus.Helper
                             });
                     }
 
-                    sbSettings.NamespaceAddress = rawConfiguration[ServiceBusConfigurationKeys.NamespaceAddress];
+                    serviceBusConfiguration.NamespaceAddress = rawConfiguration[ServiceBusConfigurationKeys.NamespaceAddress];
                 }
 
                 // Queue Name
@@ -87,7 +66,7 @@ namespace MessageQueue.ServiceBus.Helper
                         });
                 }
 
-                sbSettings.QueueName = rawConfiguration[CommonConfigurationKeys.QueueName];
+                serviceBusConfiguration.QueueName = rawConfiguration[CommonConfigurationKeys.QueueName];
 
                 // MaxDeliveryCount
                 short maxDeliveryCount;
@@ -110,7 +89,7 @@ namespace MessageQueue.ServiceBus.Helper
                     maxDeliveryCount = Defaults.MaxDeliveryCount;
                 }
 
-                sbSettings.MaxDeliveryCount = maxDeliveryCount;
+                serviceBusConfiguration.MaxDeliveryCount = maxDeliveryCount;
 
                 // MaxSizeInMegabytes
                 long maxSizeInMegabytes;
@@ -133,7 +112,7 @@ namespace MessageQueue.ServiceBus.Helper
                     maxSizeInMegabytes = Defaults.MaxSizeInMegabytes;
                 }
 
-                sbSettings.MaxSizeInMegabytes = maxSizeInMegabytes;
+                serviceBusConfiguration.MaxSizeInMegabytes = maxSizeInMegabytes;
 
                 // EnableDeadLettering
                 bool enableDeadLettering;
@@ -156,7 +135,7 @@ namespace MessageQueue.ServiceBus.Helper
                     enableDeadLettering = Defaults.EnableDeadLettering;
                 }
 
-                sbSettings.EnableDeadLettering = enableDeadLettering;
+                serviceBusConfiguration.EnableDeadLettering = enableDeadLettering;
 
                 // EnablePartitioning
                 bool enablePartitioning;
@@ -179,7 +158,7 @@ namespace MessageQueue.ServiceBus.Helper
                     enablePartitioning = Defaults.EnablePartitioning;
                 }
 
-                sbSettings.EnablePartitioning = enablePartitioning;
+                serviceBusConfiguration.EnablePartitioning = enablePartitioning;
 
                 // RequiresDuplicateDetection
                 bool requiresDuplicateDetection;
@@ -202,7 +181,7 @@ namespace MessageQueue.ServiceBus.Helper
                     requiresDuplicateDetection = Defaults.RequiresDuplicateDetection;
                 }
 
-                sbSettings.RequiresDuplicateDetection = requiresDuplicateDetection;
+                serviceBusConfiguration.RequiresDuplicateDetection = requiresDuplicateDetection;
 
                 // EnableBatchedOperations
                 bool enableBatchedOperations;
@@ -225,7 +204,7 @@ namespace MessageQueue.ServiceBus.Helper
                     enableBatchedOperations = Defaults.EnableBatchedOperations;
                 }
 
-                sbSettings.EnableBatchedOperations = enableBatchedOperations;
+                serviceBusConfiguration.EnableBatchedOperations = enableBatchedOperations;
 
                 // MessageTimeToLiveInMinutes
                 if (rawConfiguration.ContainsKey(ServiceBusConfigurationKeys.MessageTimeToLiveInMinutes))
@@ -243,11 +222,11 @@ namespace MessageQueue.ServiceBus.Helper
                             });
                     }
 
-                    sbSettings.MessageTimeToLiveInMinutes = TimeSpan.FromMinutes(messageTimeToLiveInMinutes);
+                    serviceBusConfiguration.MessageTimeToLiveInMinutes = TimeSpan.FromMinutes(messageTimeToLiveInMinutes);
                 }
                 else
                 {
-                    sbSettings.MessageTimeToLiveInMinutes = Defaults.MessageTimeToLive;
+                    serviceBusConfiguration.MessageTimeToLiveInMinutes = Defaults.MessageTimeToLive;
                 }
 
                 // LockDurationInSeconds
@@ -266,11 +245,11 @@ namespace MessageQueue.ServiceBus.Helper
                             });
                     }
 
-                    sbSettings.LockDurationInSeconds = TimeSpan.FromSeconds(lockDurationInSeconds);
+                    serviceBusConfiguration.LockDurationInSeconds = TimeSpan.FromSeconds(lockDurationInSeconds);
                 }
                 else
                 {
-                    sbSettings.LockDurationInSeconds = Defaults.LockDurationInSeconds;
+                    serviceBusConfiguration.LockDurationInSeconds = Defaults.LockDurationInSeconds;
                 }
 
                 // Acknowledgment
@@ -305,7 +284,7 @@ namespace MessageQueue.ServiceBus.Helper
                     acknowledgment = Defaults.Acknowledgment;
                 }
 
-                sbSettings.Acknowledgment = acknowledgment;
+                serviceBusConfiguration.Acknowledgment = acknowledgment;
 
                 // MaxConcurrentReceiveCallback
                 ushort maxConcurrentReceiveCallback;
@@ -339,11 +318,11 @@ namespace MessageQueue.ServiceBus.Helper
                     maxConcurrentReceiveCallback = Defaults.MaxConcurrentReceiveCallback;
                 }
 
-                sbSettings.MaxConcurrentReceiveCallback = maxConcurrentReceiveCallback;
+                serviceBusConfiguration.MaxConcurrentReceiveCallback = maxConcurrentReceiveCallback;
                 #endregion
 
                 #region Return
-                return sbSettings;
+                return serviceBusConfiguration;
                 #endregion
             }
             catch (QueueException queueException)

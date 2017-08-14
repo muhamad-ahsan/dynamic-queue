@@ -54,3 +54,5 @@
 /Tests/MessageQueue.Receiver/obj/Debug
 /_Output/bin/Debug
 /Tests/MessageQueue.Sender/obj/Debug
+/.vs/slnx.sqlite
+/.vs/slnx.sqlite-journal

@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Linq;
 using MessageQueue.Core.Helper;
 using System.Collections.Generic;
 using MessageQueue.Core.Concrete;
 using MessageQueue.Core.Properties;
 using MessageQueue.Log.Core.Abstract;
+using MessageQueue.RabbitMq.Concrete;
 
 namespace MessageQueue.RabbitMq.Helper
 {
@@ -25,39 +25,16 @@ namespace MessageQueue.RabbitMq.Helper
         {
             try
             {
-
-                #region Parameters Validation
+                #region Initialization
                 var rabbitMqConfiguration = new RabbitMqConfiguration();
                 rawConfiguration = rawConfiguration ?? new Dictionary<string, string>();
+                #endregion
 
-                var notSupportedParams =
-                    rawConfiguration.Keys.Where(x => !CommonConfigurationKeys.GetAllKeys().Contains(x) &&
-                                                     !RabbitMqConfigurationKeys.GetAllKeys().Contains(x)).ToList();
+                #region Collecting Common Configuration
+                MessageQueueCommonItems.CollectCommonConfiguration(ref rawConfiguration, rabbitMqConfiguration, RabbitMqConfigurationKeys.GetAllKeys());
+                #endregion
 
-                if (notSupportedParams.Any())
-                {
-                    throw new QueueException(QueueErrorCode.NotSupportedConfigurationParameters,
-                        ErrorMessages.NotSupportedConfigurationParameters, context: new Dictionary<string, string>
-                        {
-                            [CommonContextKeys.NotSupportedParameters] = string.Join(",", notSupportedParams)
-                        });
-                }
-
-                // Address
-                if (!rawConfiguration.ContainsKey(CommonConfigurationKeys.Address) ||
-                    string.IsNullOrWhiteSpace(rawConfiguration[CommonConfigurationKeys.Address]))
-                {
-                    throw new QueueException(QueueErrorCode.MissingRequiredConfigurationParameter,
-                        string.Format(ErrorMessages.MissingRequiredConfigurationParameter,
-                            CommonConfigurationKeys.Address),
-                        context: new Dictionary<string, string>
-                        {
-                            [CommonContextKeys.ParameterName] = CommonConfigurationKeys.Address
-                        });
-                }
-
-                rabbitMqConfiguration.Address = rawConfiguration[CommonConfigurationKeys.Address];
-
+                #region Collecting Other Configuration
                 // Port
                 int port = 0;
 

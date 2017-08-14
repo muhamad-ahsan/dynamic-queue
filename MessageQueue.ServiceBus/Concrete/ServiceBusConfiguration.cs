@@ -1,16 +1,16 @@
 ﻿using System;
+using MessageQueue.Core.Abstract;
 
-namespace MessageQueue.ServiceBus.Helper
+namespace MessageQueue.ServiceBus.Concrete
 {
     /// <summary>
     /// Contains ServiceBus settings.
     /// </summary>
-    internal sealed class ServiceBusConfiguration
+    internal sealed class ServiceBusConfiguration : MessageQueueConfiguration
     {
         #region Public Data Members
         public string QueueName { get; set; }
         public bool Acknowledgment { get; set; }
-        public string Address { get; set; }
         public string NamespaceAddress { get; set; }
         public short MaxDeliveryCount { get; set; }
         public long MaxSizeInMegabytes { get; set; }

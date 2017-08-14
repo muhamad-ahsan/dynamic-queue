@@ -6,6 +6,7 @@ using MessageQueue.Core.Concrete;
 using System.Collections.Generic;
 using MessageQueue.ZeroMq.Helper;
 using MessageQueue.Core.Properties;
+using MessageQueue.ZeroMq.Concrete;
 using MessageQueue.Log.Core.Abstract;
 
 namespace MessageQueue.ZeroMq.Abstract

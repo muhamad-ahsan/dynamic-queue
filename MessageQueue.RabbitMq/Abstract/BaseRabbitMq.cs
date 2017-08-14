@@ -7,6 +7,7 @@ using RabbitMQ.Client.Exceptions;
 using MessageQueue.Core.Properties;
 using MessageQueue.RabbitMq.Helper;
 using MessageQueue.Log.Core.Abstract;
+using MessageQueue.RabbitMq.Concrete;
 
 namespace MessageQueue.RabbitMq.Abstract
 {

@@ -69,7 +69,7 @@
     <Compile Include="Helper\CommonItems.cs" />
     <Compile Include="Helper\Defaults.cs" />
     <Compile Include="Helper\ZeroMqConfigurationKeys.cs" />
-    <Compile Include="Helper\ZeroMqConfiguration.cs" />
+    <Compile Include="Concrete\ZeroMqConfiguration.cs" />
     <Compile Include="Helper\ZeroMqSocketType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

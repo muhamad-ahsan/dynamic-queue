@@ -1,12 +1,13 @@
-﻿namespace MessageQueue.RabbitMq.Helper
+﻿using MessageQueue.Core.Abstract;
+
+namespace MessageQueue.RabbitMq.Concrete
 {
     /// <summary>
     /// Contains RabbitMq configuration.
     /// </summary>
-    internal class RabbitMqConfiguration
+    internal class RabbitMqConfiguration : MessageQueueConfiguration
     {
         #region Public Data Members
-        public string Address { get; set; }
         public int Port { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }

@@ -61,7 +61,7 @@
     <Compile Include="Helper\CommonItems.cs" />
     <Compile Include="Helper\ContextKeys.cs" />
     <Compile Include="Helper\Defaults.cs" />
-    <Compile Include="Helper\RabbitMqConfiguration.cs" />
+    <Compile Include="Concrete\RabbitMqConfiguration.cs" />
     <Compile Include="Helper\RabbitMqConfigurationKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

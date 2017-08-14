@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Linq;
 using MessageQueue.Core.Helper;
 using System.Collections.Generic;
 using MessageQueue.Core.Concrete;
 using MessageQueue.Core.Properties;
+using MessageQueue.ZeroMq.Concrete;
 using MessageQueue.Log.Core.Abstract;
 
 namespace MessageQueue.ZeroMq.Helper
@@ -25,41 +25,21 @@ namespace MessageQueue.ZeroMq.Helper
         {
             try
             {
-                #region Parameters Validation
-                var zeroMqSettings = new ZeroMqConfiguration();
+                #region Initialization
+                var zeroMqConfiguration = new ZeroMqConfiguration();
                 rawConfiguration = rawConfiguration ?? new Dictionary<string, string>();
+                #endregion
 
-                var notSupportedParams =
-                    rawConfiguration.Keys.Where(x => !CommonConfigurationKeys.GetAllKeys().Contains(x) &&
-                                                     !ZeroMqConfigurationKeys.GetAllKeys().Contains(x)).ToList();
+                #region Collecting Common Configuration
+                MessageQueueCommonItems.CollectCommonConfiguration(ref rawConfiguration, zeroMqConfiguration, ZeroMqConfigurationKeys.GetAllKeys());
+                #endregion
 
-                if (notSupportedParams.Any())
-                {
-                    throw new QueueException(QueueErrorCode.NotSupportedConfigurationParameters,
-                        ErrorMessages.NotSupportedConfigurationParameters, context: new Dictionary<string, string>
-                        {
-                            [CommonContextKeys.NotSupportedParameters] = string.Join(",", notSupportedParams)
-                        });
-                }
-
-                // Address
-                if (!rawConfiguration.ContainsKey(CommonConfigurationKeys.Address) ||
-                    string.IsNullOrWhiteSpace(rawConfiguration[CommonConfigurationKeys.Address]))
-                {
-                    throw new QueueException(QueueErrorCode.MissingRequiredConfigurationParameter,
-                        string.Format(ErrorMessages.MissingRequiredConfigurationParameter,
-                            CommonConfigurationKeys.Address),
-                        context: new Dictionary<string, string>
-                        {
-                            [CommonContextKeys.ParameterName] = CommonConfigurationKeys.Address
-                        });
-                }
-                
-                zeroMqSettings.Address = rawConfiguration[CommonConfigurationKeys.Address];
+                #region Collecting Other Configuration
+                // Nothing to collect.
                 #endregion
 
                 #region Return
-                return zeroMqSettings;
+                return zeroMqConfiguration;
                 #endregion
             }
             catch (QueueException queueException)

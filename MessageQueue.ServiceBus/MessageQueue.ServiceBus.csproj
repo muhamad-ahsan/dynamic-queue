@@ -59,7 +59,7 @@
     <Compile Include="Helper\CommonItems.cs" />
     <Compile Include="Helper\Defaults.cs" />
     <Compile Include="Helper\ServiceBusConfigurationKeys.cs" />
-    <Compile Include="Helper\ServiceBusSettings.cs" />
+    <Compile Include="Concrete\ServiceBusConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

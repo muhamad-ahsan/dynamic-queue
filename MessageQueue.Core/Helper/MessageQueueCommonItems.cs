@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using MessageQueue.Core.Abstract;
 using MessageQueue.Core.Concrete;
 using MessageQueue.Core.Properties;
 using MessageQueue.Log.Core.Abstract;
@@ -139,6 +140,48 @@ namespace MessageQueue.Core.Helper
             return queueException;
             #endregion
         }
+
+        /// <summary>
+        /// Helper method to collect and validate common configuration parameters.
+        /// </summary>
+        public static void CollectCommonConfiguration(ref Dictionary<string, string> rawConfiguration, MessageQueueConfiguration configuration, IEnumerable<string> allowedKeys)
+        {
+            #region Parameters Validation & Collection
+            if (configuration != null)
+            {
+                allowedKeys = allowedKeys ?? new List<string>();
+                rawConfiguration = rawConfiguration ?? new Dictionary<string, string>();
+
+                var notSupportedParams =
+                    rawConfiguration.Keys.Where(x => !CommonConfigurationKeys.GetAllKeys().Contains(x) && !allowedKeys.Contains(x)).ToList();
+
+                if (notSupportedParams.Any())
+                {
+                    throw new QueueException(QueueErrorCode.NotSupportedConfigurationParameters,
+                        ErrorMessages.NotSupportedConfigurationParameters,
+                        context: new Dictionary<string, string>
+                        {
+                            [CommonContextKeys.NotSupportedParameters] = string.Join(",", notSupportedParams)
+                        });
+                }
+
+                // Address
+                if (!rawConfiguration.ContainsKey(CommonConfigurationKeys.Address) ||
+                    string.IsNullOrWhiteSpace(rawConfiguration[CommonConfigurationKeys.Address]))
+                {
+                    throw new QueueException(QueueErrorCode.MissingRequiredConfigurationParameter,
+                        string.Format(ErrorMessages.MissingRequiredConfigurationParameter, CommonConfigurationKeys.Address),
+                        context: new Dictionary<string, string>
+                        {
+                            [CommonContextKeys.ParameterName] = CommonConfigurationKeys.Address
+                        });
+                }
+
+                configuration.Address = rawConfiguration[CommonConfigurationKeys.Address];
+            }
+            #endregion
+        }
+
         #endregion
     }
 }

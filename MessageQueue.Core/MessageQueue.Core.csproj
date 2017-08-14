@@ -54,6 +54,7 @@
     <Compile Include="Abstract\IMessageReceiveOptions.cs" />
     <Compile Include="Abstract\Inbound\IInboundFaFMq.cs" />
     <Compile Include="Abstract\Inbound\IInboundRaRMq.cs" />
+    <Compile Include="Abstract\MessageQueueConfiguration.cs" />
     <Compile Include="Abstract\Outbound\IOutboundFaFMq.cs" />
     <Compile Include="Abstract\Outbound\IOutboundRaRMq.cs" />
     <Compile Include="Abstract\RequestMessage.cs" />
@@ -98,6 +99,7 @@
     <EmbeddedResource Include="Properties\ErrorMessages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
