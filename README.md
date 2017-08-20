@@ -85,7 +85,7 @@ As of now, following message brokers have been implemented:
 | Name | Description | Example | Required |
 | --- | --- | --- | --- |
 | Address | The address of the queue (no server as it is in-memory) | `>tcp://localhost:5551` |  :white_check_mark: |
-| Implementation | The relevant implementaion (inbound or outbound) | `MessageQueue.ZeroMq...` |  :white_check_mark: |
+| Implementation | The relevant implementation (inbound or outbound) | `MessageQueue.ZeroMq...` |  :white_check_mark: |
 
 ##### ZeroMq - Interface Implementation
 
@@ -100,14 +100,13 @@ As of now, following message brokers have been implemented:
 | Name | Description | Example | Required |
 | --- | --- | --- | --- |
 | Address | The address of the RabbitMq server | `localhost` |  :white_check_mark: |
-| Implementation | The relevant implementaion (inbound or outbound) |`MessageQueue.RabbitMq...` |  :white_check_mark: |
+| Implementation | The relevant implementation (inbound or outbound) |`MessageQueue.RabbitMq...` |  :white_check_mark: |
 | QueueName | The queue name | `MyQueue` |  :white_check_mark: |
 | UserName | Username to connect with server | `guest` |  :white_check_mark: |
 | Password | Password to connect with server | `guest` |  :white_check_mark: |
 | Port | The port on which server is listening | `1234` |  :x: |
 | Acknowledgment | The message acknowledgment setting (inbound only) | `true` OR `false` |  :x: |
 | MaxConcurrentReceiveCallback | The max number of concurrent calls to the receive handler | `5` |  :x: |
-| Acknowledgment | The message acknowledgment setting (inbound only) | `true` OR `false` |  :x: |
 | ExchangeName | The exchange name | `MyExchange` |  :x: |
 | RoutingKey | The routing key | `Key1` |  :x: |
 | ConnectionTimeoutInMinutes | The connection timeout in minutes | `2` |  :x: |
@@ -125,11 +124,10 @@ As of now, following message brokers have been implemented:
 | Name | Description | Example | Required |
 | --- | --- | --- | --- |
 | Address | The servicebus endpoint address | `Endpoint` |  :white_check_mark: |
-| Implementation | The relevant implementaion (inbound or outbound) |`MessageQueue.ServiceBus...` |  :white_check_mark: |
+| Implementation | The relevant implementation (inbound or outbound) |`MessageQueue.ServiceBus...` |  :white_check_mark: |
 | QueueName | The queue name | `MyQueue` |  :white_check_mark: |
 | Acknowledgment | The message acknowledgment setting (inbound only) | `true` OR `false` |  :x: |
 | MaxConcurrentReceiveCallback | The max number of concurrent calls to the receive handler | `5` |  :x: |
-| Acknowledgment | The message acknowledgment setting (inbound only) | `true` OR `false` |  :x: |
 
 ##### ServiceBus - Interface Implementation
 
