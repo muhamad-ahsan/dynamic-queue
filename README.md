@@ -160,16 +160,16 @@ In the Test folder, there are four projects (console application) which consumes
 # Nuget
 
 ##### ZeroMq
-[![NuGet](https://img.shields.io/badge/nuget--ZeroMq-v1.0-blue.svg)](https://www.nuget.org/packages/DynamicQueue.ZeroMq)
+[![NuGet](https://img.shields.io/badge/nuget--ZeroMq-v1.0-blue.svg)](http://bit.ly/2vg7jHE)
 
 ##### RabbitMq
-[![NuGet](https://img.shields.io/badge/nuget--RabbitMq-v1.0-blue.svg)](https://www.nuget.org/packages/DynamicQueue.RabbitMq)
+[![NuGet](https://img.shields.io/badge/nuget--RabbitMq-v1.0-blue.svg)](http://bit.ly/2wgvPgi)
 
 ##### ServiceBus
-[![NuGet](https://img.shields.io/badge/nuget--ServiceBus-v1.0-blue.svg)](https://www.nuget.org/packages/DynamicQueue.ServiceBus)
+[![NuGet](https://img.shields.io/badge/nuget--ServiceBus-v1.0-blue.svg)](http://bit.ly/2ww83fI)
 
 ##### Logging-NLog 
-[![NuGet](https://img.shields.io/badge/nuget--Logger--NLog-v1.0-blue.svg)](https://www.nuget.org/packages/DynamicQueue.Log.NLog)
+[![NuGet](https://img.shields.io/badge/nuget--Logger--NLog-v1.0-blue.svg)](http://bit.ly/2uWKKMG)
 
 
 # Appreciation
