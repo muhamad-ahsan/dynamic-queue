@@ -2,7 +2,7 @@
 # About
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Message Queues are very crucial part of many applications specially Enterprise and Real Time applications. There are many message broker frameworks available in the market e.g. `RabbitMq`, `ZeroMq`, `ServiceBus` and so on. Each framework has different features, implementation and client(s) to interact with the framework.
+Message Queues are very crucial part of many applications specially Enterprise and Real Time applications. There are many message broker frameworks available in the market e.g. `RabbitMq`, `ZeroMq`, `ServiceBus` and so on. Each framework has different features, implementation and client(s) to interact with the framework ([more on message brokers](http://teckhike.com/open-source-message-broker-advanced-message-queuing-protocol-amqp/)).
 
 It is very common that in a single application you use more than one message broker. For example, `ZeroMq` is in-memory messaging queue and it is very efficient because of this reason; so, it can be used for logging purpose in a separate thread. Or the scenario could be using free message broker in **Development Environment** and paid one in **Production Environment**. So there are many possibilities using more than one message broker in a single application.
 
