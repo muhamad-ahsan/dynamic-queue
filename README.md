@@ -77,6 +77,7 @@ As of now, following message brokers have been implemented:
 | [RabbitMq](https://www.rabbitmq.com/) | :white_check_mark: | :white_check_mark: | :x: |
 | [ServiceBus](https://azure.microsoft.com/en-us/services/service-bus/) | :white_check_mark: | :x: | :x: |
 
+[See message brokers comparison](http://teckhike.com/message-broker-comparison-rabbitmq-kafka-activemq-kestrel/)
 ### Configuration Parameters
 
 
